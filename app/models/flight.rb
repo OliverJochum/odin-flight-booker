@@ -4,4 +4,8 @@ class Flight < ApplicationRecord
 
   validates :departure_airport_id, length: {is: 3}
   validates :arrival_airport_id, length: {is: 3}
+
+  def self.search(da, aa, s)
+    where('departure_airport_id = ? AND arrival_airport_id = ? AND start = ?',da,aa,s)
+  end
 end
