@@ -1,0 +1,28 @@
+<h1>Find Flight</h1>
+
+<%=form_with method: :get do |form|%>
+  <%= form.label :departure_airport_id, "Departure Airports"%>
+  <%= form.select :departure_airport_id, options_for_select(@airport_options)%>
+
+  <%= form.label :arrival_airport_id, "Arrival Airports"%>
+  <%= form.select :arrival_airport_id, options_for_select(@airport_options)%>
+
+  <%= form.label :number_passengers, "Number of Passengers"%>
+  <%= form.select :number_passengers, options_for_select([1,2,3,4])%>
+
+  <%= form.label :start, "Date"%>
+  <%= form.select :start, options_for_select(@start_options)%>
+
+  <%= form.submit "Search"%>
+<%end%>
+
+<ul>
+  <% @flights.each do |flight|%>
+    <li>
+      <%=flight.departure_airport_id%>
+      <%=flight.arrival_airport_id%>
+      <%=flight.start%>
+      <%=flight.duration%>
+    </li>
+  <%end%>
+</ul>
