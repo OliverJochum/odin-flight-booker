@@ -16,13 +16,9 @@
   <%= form.submit "Search"%>
 <%end%>
 
-<ul>
-  <% @flights.each do |flight|%>
-    <li>
-      <%=flight.departure_airport_id%>
-      <%=flight.arrival_airport_id%>
-      <%=flight.start%>
-      <%=flight.duration%>
-    </li>
-  <%end%>
-</ul>
+
+<%=form_with url:"bookings#new",method: :get do |form|%>
+  <%= form.collection_radio_buttons :flight, @flights, :id, :start %>
+  <%= form.hidden_field :number_passengers%>
+  <%= form.submit "Select"%>
+<%end%>
