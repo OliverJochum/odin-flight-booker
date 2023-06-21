@@ -8,4 +8,8 @@ class FlightsController < ApplicationController
       @flights = Flight.search params[:departure_airport_id], params[:arrival_airport_id], params[:start].to_datetime 
     end
   end
+
+  def select
+    redirect_to new_booking_path
+  end
 end
