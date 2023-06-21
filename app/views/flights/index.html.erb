@@ -17,7 +17,7 @@
 <%end%>
 
 
-<%=form_with url:"bookings#new",method: :get do |form|%>
+<%=form_with url:new_booking_path do |form|%>
   <%= form.collection_radio_buttons :flight, @flights, :id, :start %>
   <%= form.hidden_field :number_passengers%>
   <%= form.submit "Select"%>
