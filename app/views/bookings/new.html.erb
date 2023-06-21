@@ -1,0 +1,22 @@
+<%= form_with @booking do |form|%>
+  <%= form.label :date, "Date"%>
+  <%= form.text_field :date, @flight.start%>
+  <%= form.label :departure_airport, "Departure Airport" %>
+  <%= form.text_field :departure_airport, @flight.departure_airport_id%>
+  <%= form.label :arrival_airport, "Arrival Airport" %>
+  <%= form.text_field :arrival_airport, @flight.arrival_airport_id%>
+  <%= form.label :flight_id, "Flight ID" %>
+  <% form.text_field :flight_id\, @flight_id%>
+
+
+    <%= fields_for @passengers.each do |passenger_form|%>
+      <h3>New Passenger</h3>
+      <%= passenger_form.label :name %>
+      <%= passenger_form.text_field :name %>
+      <%= passenger_form.label :email %>
+      <%= passenger_form.text_field :email%>
+    <%end%>
+  
+
+  <%= form.submit "Submit"%>
+<%end%>
