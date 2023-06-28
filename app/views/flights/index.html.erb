@@ -17,8 +17,10 @@
 <%end%>
 
 
-<%=form_with url:new_booking_path do |form|%>
+<%=form_with url:new_booking_path, method: :get do |form|%>
   <%= form.collection_radio_buttons :flight, @flights, :id, :start %>
-  <%= form.hidden_field :number_passengers%>
+  <%= form.hidden_field :number_passengers, value: @number_passengers%>
   <%= form.submit "Select"%>
 <%end%>
+
+<%= debug(params) %>
