@@ -7,6 +7,8 @@ class FlightsController < ApplicationController
     if params[:departure_airport_id] and params[:arrival_airport_id] and params[:start]
       @flights = Flight.search params[:departure_airport_id], params[:arrival_airport_id], params[:start].to_datetime 
     end
+
+    @number_passengers = params[:number_passengers]
   end
 
   def select
